@@ -141,6 +141,42 @@ section{padding:26px 0}
  footer h2{font-size:23px}
 }
 @media(hover:none){.hsnav button{display:none}.hsnav .cnt{margin-right:0}}
+
+/* ===== Case study cards v2 ===== */
+#cases.hs{gap:18px;padding:8px 4px 22px}
+#cases.hs>.cs{flex:0 0 min(470px,88vw);display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 1px 2px rgba(15,27,51,.05),0 14px 34px -14px rgba(29,78,216,.28);transition:transform .25s ease,box-shadow .25s ease;position:relative}
+#cases.hs>.cs:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(15,27,51,.06),0 26px 48px -16px rgba(29,78,216,.42)}
+.cs-top{position:relative;overflow:hidden;color:#fff;padding:20px 22px 22px;background:linear-gradient(135deg,var(--g1),var(--g2))}
+.cs-top::before{content:"";position:absolute;right:-60px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.34),rgba(255,255,255,0) 68%)}
+.cs-top::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:linear-gradient(120deg,transparent 30%,#000);mask-image:linear-gradient(120deg,transparent 30%,#000);pointer-events:none}
+.cs-top>*{position:relative;z-index:1}
+.cs-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+.cs-no{font:700 13px Inter,sans-serif;letter-spacing:.14em;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 11px}
+.cs-tag{font-size:12px;font-weight:600;background:rgba(255,255,255,.16);border-radius:999px;padding:4px 11px;text-align:right}
+.cs-metric{font:700 clamp(34px,8vw,50px)/1.05 Fraunces,Georgia,serif;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.18)}
+.cs-metric .m0{font-size:.55em;opacity:.7;text-decoration:line-through;text-decoration-thickness:2px}
+.cs-metric .ma{font-size:.6em;opacity:.95}
+.cs-label{margin-top:8px;font-size:15px;font-weight:500;opacity:.96}
+.cs-chip{display:inline-block;margin-top:12px;background:#fff;color:var(--g1);font-weight:700;font-size:12.5px;border-radius:999px;padding:5px 12px;box-shadow:0 4px 12px rgba(0,0,0,.14)}
+.cs-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.cs-body h3{font-size:21px;line-height:1.2;margin:0 0 16px}
+.cs-steps{list-style:none;margin:0 0 18px;padding:0 0 0 26px;position:relative}
+.cs-steps::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;border-radius:2px;background:linear-gradient(var(--g1),var(--g2));opacity:.35}
+.cs-steps li{position:relative;padding:0 0 13px}
+.cs-steps li:last-child{padding-bottom:0}
+.cs-steps li::before{content:"";position:absolute;left:-26px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--g1);box-shadow:0 0 0 3px var(--soft)}
+.cs-steps b{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--g1);margin-bottom:2px}
+.cs-steps p{margin:0;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.cs-out{margin-top:auto;border-radius:14px;padding:13px 15px;background:linear-gradient(135deg,var(--soft),#fff);border:1px solid var(--line);border-left:5px solid var(--g1)}
+.cs-out b{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--g1);margin-bottom:3px}
+.cs-out p{margin:0;font-weight:600;font-size:15px;line-height:1.45;color:var(--ink)}
+@media(max-width:720px){
+ #cases.hs>.cs{flex-basis:88vw;border-radius:18px}
+ .cs-top{padding:16px 16px 18px}.cs-row{margin-bottom:12px}
+ .cs-body{padding:16px}.cs-body h3{font-size:18px;margin-bottom:12px}
+ .cs-steps p{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){#cases.hs>.cs{transition:none}#cases.hs>.cs:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -277,10 +313,12 @@ var cases=[
 ];
 var km=[["$45K","incremental MRR in 4 months","+32% retention"],["3% → 16%","book-to-demo conversion","5x+ lift"],["↑ FBP usage","higher limit consumption on the app","Feature I proposed"],["+30%","repeat purchase rate","Gamified rewards at 1M+ MAU"],["21% → 29%","weekly active retention","+38% relative"],["+28%","90-day retention","ROAS 2.1x → 3.8x"],["18% → 26%","DAU/MAU","+44% relative"],["Every call","over 20s analyzed automatically each night","No manual downloads"],["Daily","AI diagnosis of campaigns and journeys","Fixes + next steps"]];
 function bg(s){var p=s.split(" \u2192 ");return p.length==2?'<span class="b0">'+p[0]+'</span><span class="ar">\u2192</span><span class="b1">'+p[1]+'</span>':s;}
+var pal=[["#1d4ed8","#38bdf8"],["#6d28d9","#818cf8"],["#0f766e","#34d399"],["#c2410c","#fbbf24"],["#be185d","#fb7185"],["#0369a1","#22d3ee"],["#4338ca","#a78bfa"],["#15803d","#a3e635"],["#1e40af","#60a5fa"]];
+function bg2(s){var p=s.split(" \u2192 ");return p.length==2?'<span class="m0">'+p[0]+'</span><span class="ma">\u2192</span><span>'+p[1]+'</span>':'<span>'+s+'</span>';}
 var h="";
-cases.forEach(function(c,i){var k=km[i]||["","",""];
-h+='<article class="case"><div class="hl"><div class="big">'+bg(k[0])+'</div><div class="bl">'+k[1]+'</div><div class="chip2">'+k[2]+'</div></div><div class="body"><header><h3>'+c.t+'</h3><span class="tag">'+c.m+'</span></header><dl>'+
-'<dt>Problem</dt><dd>'+c.p+'</dd><dt>Hypothesis</dt><dd>'+c.h+'</dd><dt>What the data said</dt><dd>'+c.d+'</dd><dt>Plan &amp; actions</dt><dd>'+c.a+'</dd><dt>Outcome</dt><dd class="out">'+c.o+'</dd></dl></div></article>';
+cases.forEach(function(c,i){var k=km[i]||["","",""],g=pal[i%pal.length],n=(i+1<10?"0":"")+(i+1);
+h+='<article class="cs" style="--g1:'+g[0]+';--g2:'+g[1]+'"><div class="cs-top"><div class="cs-row"><span class="cs-no">'+n+'</span><span class="cs-tag">'+c.m+'</span></div><div class="cs-metric">'+bg2(k[0])+'</div><div class="cs-label">'+k[1]+'</div><span class="cs-chip">'+k[2]+'</span></div>'+
+'<div class="cs-body"><h3>'+c.t+'</h3><ol class="cs-steps"><li><b>Problem</b><p>'+c.p+'</p></li><li><b>Hypothesis</b><p>'+c.h+'</p></li><li><b>What the data said</b><p>'+c.d+'</p></li><li><b>Plan &amp; actions</b><p>'+c.a+'</p></li></ol><div class="cs-out"><b>Outcome</b><p>'+c.o+'</p></div></div></article>';
 });
 document.getElementById("cases").innerHTML=h;
 </script>
