@@ -70,6 +70,77 @@ footer h2{font-size:30px;margin-bottom:8px}
 footer p{color:var(--muted);margin:0 0 20px}
 @media(max-width:720px){.hero{grid-template-columns:1fr;text-align:left;padding-top:32px}.avatar{width:140px;height:140px;font-size:46px}.stats{grid-template-columns:repeat(2,1fr)}.case dl{grid-template-columns:1fr;gap:2px}.case dt{margin-top:8px}.tl li{grid-template-columns:1fr;gap:2px}nav div{gap:12px}}
 @media(max-width:720px){body{overflow-x:clip}.wrap{padding:0 16px}nav{height:52px;gap:12px}nav b{font-size:16px;flex:none}nav div{overflow-x:auto;white-space:nowrap;gap:18px;scrollbar-width:none;-webkit-overflow-scrolling:touch}nav div::-webkit-scrollbar{display:none}nav a{padding:14px 0;display:block}.hero{gap:18px;padding:58px 0 28px}.loc{top:12px;font-size:12px;padding:5px 10px}.hero .name{font-size:44px}.hero .tagline{font-size:22px}.btns .btn{flex:1 1 100%;text-align:center;min-height:46px;display:flex;align-items:center;justify-content:center;word-break:break-word}.stat{padding:14px}.stat b{font-size:24px}section{padding:32px 0}section>.wrap>h2{font-size:26px}.fd{grid-template-columns:1fr !important;gap:2px !important}.fd dt{margin-top:10px}.founder-box{padding:18px}.founder-box .top h3{font-size:22px}.case .body{padding:18px}.case h3{font-size:20px}.chips span{max-width:100%}footer{padding:36px 0 44px}footer h2{font-size:26px}footer .btns{flex-direction:column}}
+
+/* ===== Horizontal-scroll layout ===== */
+html{scroll-behavior:smooth}
+section{padding:26px 0}
+.hero{padding:34px 0 22px}.stats{margin-bottom:28px}
+.sub{margin-bottom:14px}
+.hswrap{position:relative}
+.hs{display:flex !important;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 16px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.hs>*{flex:0 0 min(300px,80vw);scroll-snap-align:start;margin:0 !important}
+#cases.hs>.case{flex:0 0 min(620px,88vw);display:flex;flex-direction:column}
+#cases.hs .case .hl{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:16px 20px}
+#cases.hs .case .big{font-size:26px}#cases.hs .case .b1{font-size:32px}
+#cases.hs .case .bl{flex:1 1 140px}
+#cases.hs .case .body{padding:18px 20px;flex:1}
+#cases.hs .case dl{grid-template-columns:110px 1fr}
+#pm .hs>*,#achievements .hs>*{flex-basis:min(340px,84vw)}
+#achievements .hs>*{flex-basis:min(400px,86vw)}
+.tl.hs{display:flex !important}
+.tl.hs>li{flex:0 0 min(250px,70vw);display:block;border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:14px 16px}
+.tl.hs>li span{display:block;margin-bottom:6px;font-weight:600;color:var(--accent)}
+.skills.hs>.skillrow{flex:0 0 min(340px,84vw);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.hsnav{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin:-4px 0 6px}
+.hsnav .cnt{margin-right:auto;font-size:13px;color:var(--muted)}
+.hsnav button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:18px;cursor:pointer}
+.hsnav button:hover{background:var(--accent);color:var(--accent-ink)}
+.hsnav button:disabled{opacity:.35;cursor:default;background:var(--surface);color:var(--ink)}
+@media(max-width:720px){#cases.hs .case dl{grid-template-columns:1fr}.hsnav button{width:42px;height:42px}}
+
+/* ===== Phone optimisation ===== */
+@media(max-width:720px){
+ html{-webkit-text-size-adjust:100%}
+ body{font-size:15px}
+ /* rows bleed to screen edge, cards peek to signal swipe */
+ .hswrap{margin:0 -16px}
+ .hs{padding:4px 16px 14px;scroll-padding-left:16px;gap:12px}
+ .hsnav{padding:0 16px;margin:0 0 8px}
+ .hsnav .cnt{font-size:12px}
+ .hs>*{flex-basis:84vw}
+ #cases.hs>.case,#pm .hs>*,#achievements .hs>*{flex-basis:88vw}
+ .tl.hs>li{flex-basis:72vw}
+ /* hero */
+ .hero{padding:26px 0 16px;gap:14px}
+ .avatar{width:112px;height:112px}
+ .loc{position:static;display:inline-block;justify-self:start;margin-bottom:4px}
+ .hero{display:flex;flex-direction:column;align-items:flex-start}
+ .hero .name{font-size:38px}.hero .tagline{font-size:20px}
+ .hero p{font-size:15px;margin-bottom:14px}
+ /* stats become a swipe row */
+ .stats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 -16px 20px;padding:2px 16px 8px;scrollbar-width:none}
+ .stats::-webkit-scrollbar{display:none}
+ .stat{flex:0 0 62vw;scroll-snap-align:start}
+ /* case cards */
+ #cases.hs .case .hl{padding:14px 16px;gap:4px 10px}
+ #cases.hs .case .big{font-size:22px;white-space:normal;flex-wrap:wrap}
+ #cases.hs .case .b0{font-size:18px}#cases.hs .case .b1{font-size:28px}.case .ar{font-size:18px}
+ #cases.hs .case .body{padding:14px 16px}
+ .case header{margin-bottom:8px}.case h3{font-size:18px}
+ .case dl{font-size:14px;line-height:1.5}
+ .case dt{font-size:11px;margin-top:6px}
+ .card{padding:14px}.card h3{font-size:17px}
+ section{padding:22px 0}
+ section>.wrap>h2{font-size:23px}
+ .sub{font-size:14px;margin-bottom:10px}
+ .founder-box{padding:14px}
+ .mini{grid-template-columns:repeat(2,1fr)}
+ .chips span{font-size:13px;padding:5px 10px}
+ nav a{padding:16px 2px}
+ .btn{min-height:44px}
+ footer h2{font-size:23px}
+}
+@media(hover:none){.hsnav button{display:none}.hsnav .cnt{margin-right:0}}
 </style>
 </head>
 <body>
@@ -180,11 +251,11 @@ footer p{color:var(--muted);margin:0 0 20px}
 
 <section><div class="wrap">
 <h2 style="margin-bottom:18px">Skills &amp; tools</h2>
-<div class="skillrow"><b>Product &amp; User Behavior</b><div class="chips"><span>User Journey &amp; Friction Mapping</span><span>Habit Loop &amp; Engagement Design</span><span>Zero-to-One Product Development</span><span>Self-Serve Funnel Optimization</span><span>Onboarding &amp; Activation Design</span><span>Repeat Usage &amp; Loyalty Program Design</span><span>Freemium/Free-to-Paid Strategy</span><span>Product Roadmapping &amp; Prioritization</span></div></div>
+<div class="skills" id="skills"><div class="skillrow"><b>Product &amp; User Behavior</b><div class="chips"><span>User Journey &amp; Friction Mapping</span><span>Habit Loop &amp; Engagement Design</span><span>Zero-to-One Product Development</span><span>Self-Serve Funnel Optimization</span><span>Onboarding &amp; Activation Design</span><span>Repeat Usage &amp; Loyalty Program Design</span><span>Freemium/Free-to-Paid Strategy</span><span>Product Roadmapping &amp; Prioritization</span></div></div>
 <div class="skillrow"><b>Data &amp; Experimentation</b><div class="chips"><span>A/B &amp; Multivariate Testing</span><span>CRO</span><span>Cohort Analysis</span><span>Funnel &amp; Usage-Signal Analysis</span><span>Behavioral Segmentation</span><span>SQL</span><span>Mixpanel</span><span>Amplitude</span><span>Google Analytics</span><span>Hotjar</span></div></div>
 <div class="skillrow"><b>CRM &amp; Lifecycle Automation</b><div class="chips"><span>MoEngage</span><span>WebEngage</span><span>HubSpot</span><span>GoHighLevel</span><span>Klaviyo</span><span>Event-Based &amp; Behavioral-Trigger Automation</span><span>Omni-Channel Campaigns (Email, WhatsApp, Push)</span></div></div>
 <div class="skillrow"><b>Cross-Functional &amp; Leadership</b><div class="chips"><span>GTM Execution</span><span>Cross-Functional Collaboration (Engineering, Sales, Analytics, Design)</span><span>User Journey Mapping</span><span>Wireframing (Figma)</span><span>OKR Alignment</span><span>Program Management</span></div></div>
-</div></section>
+</div></div></section>
 
 <footer id="contact"><div class="wrap">
 <h2>Let’s talk growth</h2>
@@ -212,6 +283,37 @@ h+='<article class="case"><div class="hl"><div class="big">'+bg(k[0])+'</div><di
 '<dt>Problem</dt><dd>'+c.p+'</dd><dt>Hypothesis</dt><dd>'+c.h+'</dd><dt>What the data said</dt><dd>'+c.d+'</dd><dt>Plan &amp; actions</dt><dd>'+c.a+'</dd><dt>Outcome</dt><dd class="out">'+c.o+'</dd></dl></div></article>';
 });
 document.getElementById("cases").innerHTML=h;
+</script>
+
+<script>
+(function(){
+function build(el,label){
+ el.classList.add('hs');
+ var w=document.createElement('div');w.className='hswrap';
+ el.parentNode.insertBefore(w,el);
+ var n=document.createElement('div');n.className='hsnav';
+ n.innerHTML='<span class="cnt"></span><button aria-label="Previous">\u2190</button><button aria-label="Next">\u2192</button>';
+ w.appendChild(n);w.appendChild(el);
+ var b=n.querySelectorAll('button'),c=n.querySelector('.cnt');
+ function step(){var k=el.children[0];return k.getBoundingClientRect().width+14}
+ function upd(){
+  var i=Math.round(el.scrollLeft/step())+1,t=el.children.length;
+  c.textContent=label+' '+Math.min(i,t)+' / '+t;
+  b[0].disabled=el.scrollLeft<4;
+  b[1].disabled=el.scrollLeft+el.clientWidth>=el.scrollWidth-4;
+ }
+ b[0].onclick=function(){el.scrollBy({left:-step(),behavior:'smooth'})};
+ b[1].onclick=function(){el.scrollBy({left:step(),behavior:'smooth'})};
+ el.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
+}
+build(document.getElementById('cases'),'Case');
+build(document.querySelector('#industries .grid'),'Industry');
+build(document.querySelector('#companies .grid'),'Company');
+build(document.querySelector('#pm .grid'),'Skill');
+build(document.querySelector('#achievements .grid'),'Card');
+build(document.querySelector('#experience .tl'),'Role');
+build(document.getElementById('skills'),'Group');
+})();
 </script>
 </body>
 </html>
