@@ -177,6 +177,13 @@ section{padding:26px 0}
  .cs-steps p{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){#cases.hs>.cs{transition:none}#cases.hs>.cs:hover{transform:none}}
+
+/* experience cards: company / role / dates */
+.tl.hs>li{display:flex !important;flex-direction:column;gap:4px;flex-basis:min(270px,76vw)}
+.tl.hs>li .x-co{font:700 20px/1.2 Fraunces,Georgia,serif;color:var(--ink)}
+.tl.hs>li .x-ind{color:var(--muted);font-size:13px;margin-top:-2px}
+.tl.hs>li .x-role{font-weight:600;color:var(--accent);font-size:15px;line-height:1.35;margin-top:6px}
+.tl.hs>li .x-dt{margin:auto 0 0 !important;padding-top:12px;font-size:13px;font-weight:500;color:var(--muted) !important;border-top:1px dashed var(--line)}
 </style>
 </head>
 <body>
@@ -276,12 +283,12 @@ section{padding:26px 0}
 <section id="experience"><div class="wrap">
 <h2>Experience</h2>
 <ul class="tl" style="margin-top:18px">
-<li><span>May 2026 – Present</span><div><b>Growth Product Manager</b>, Prosperr.io (Fintech)</div></li>
-<li><span>Jul 2024 – Jan 2026</span><div><b>Co-Founder &amp; Growth Lead</b>, OptimConvert (growth startup, global clients)</div></li>
-<li><span>Jul 2024 – Jan 2025</span><div><b>Growth Manager (Consultant)</b>, Indiginus</div></li>
-<li><span>Feb 2023 – Jul 2024</span><div><b>Growth Product Manager</b>, saasguru (EdTech/SaaS)</div></li>
-<li><span>Jun 2021 – Jan 2023</span><div><b>Senior Associate, Growth &amp; Retention</b>, Gobillion (YC21)</div></li>
-<li><span>Nov 2020 – Jun 2021</span><div><b>Growth Associate</b>, UrbanClap</div></li>
+<li><div class="x-co">Prosperr.io</div><small class="x-ind">Fintech</small><div class="x-role">Growth Product Manager</div><span class="x-dt">May 2026 – Present</span></li>
+<li><div class="x-co">OptimConvert</div><small class="x-ind">growth startup, global clients</small><div class="x-role">Co-Founder &amp; Growth Lead</div><span class="x-dt">Jul 2024 – Jan 2026</span></li>
+<li><div class="x-co">Indiginus</div><small class="x-ind">Real estate</small><div class="x-role">Growth Manager (Consultant)</div><span class="x-dt">Jul 2024 – Jan 2025</span></li>
+<li><div class="x-co">saasguru</div><small class="x-ind">EdTech/SaaS</small><div class="x-role">Growth Product Manager</div><span class="x-dt">Feb 2023 – Jul 2024</span></li>
+<li><div class="x-co">Gobillion (YC21)</div><small class="x-ind">E-commerce / D2C</small><div class="x-role">Senior Associate, Growth &amp; Retention</div><span class="x-dt">Jun 2021 – Jan 2023</span></li>
+<li><div class="x-co">UrbanClap</div><small class="x-ind">On-demand services</small><div class="x-role">Growth Associate</div><span class="x-dt">Nov 2020 – Jun 2021</span></li>
 </ul>
 </div></section>
 
